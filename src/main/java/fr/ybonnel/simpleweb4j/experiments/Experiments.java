@@ -18,20 +18,6 @@ import static fr.ybonnel.simpleweb4j.SimpleWeb4j.*;
 public class Experiments {
 
     /**
-     * Object return by route.
-     */
-    @Entity
-    public static class Hello {
-        @Id
-        @GeneratedValue
-        public Long id;
-
-        public String value;
-
-        public static SimpleEntityManager<Hello, Long> simpleEntityManager = new SimpleEntityManager<>(Hello.class);
-    }
-
-    /**
      * Start the server.
      * @param port http port to listen.
      * @param waitStop true to wait the stop.
@@ -42,22 +28,7 @@ public class Experiments {
         // Set the path to static resources.
         setPublicResourcesPath("/fr/ybonnel/simpleweb4j/experiments/public");
 
-
-        // Insert datas
-        SimpleEntityManager.openSession().beginTransaction();
-        Hello hello = new Hello();
-        hello.value = "Hello World!";
-        Hello.simpleEntityManager.save(hello);
-        SimpleEntityManager.getCurrentSession().getTransaction().commit();
-        SimpleEntityManager.closeSession();
-
-        // Declare the route "/hello" for GET method whith no param in request payload.
-        get(new Route<Void, Hello>("/hello", Void.class) {
-            @Override
-            public Response<Hello> handle(Void param, RouteParameters routeParams) throws HttpErrorException {
-                return new Response<>(Hello.simpleEntityManager.getAll().iterator().next());
-            }
-        });
+        resource(new BeerRessource("/beer"));
 
         // Start the server.
         start(waitStop);
@@ -90,6 +61,20 @@ public class Experiments {
     }
 
     public static void main(String[] args) {
+
+        SimpleEntityManager.openSession().beginTransaction();
+
+        for (Beer beerToDelete : Beer.simpleEntityManager.getAll()) {
+            Beer.simpleEntityManager.delete(beerToDelete.getId());
+        }
+
+        Beer beer = new Beer();
+        beer.setName("Castel");
+
+        Beer.simpleEntityManager.save(beer);
+        SimpleEntityManager.getCurrentSession().getTransaction().commit();
+        SimpleEntityManager.closeSession();
+
         // For main, we want to wait the stop.
         startServer(getPort(), true);
     }

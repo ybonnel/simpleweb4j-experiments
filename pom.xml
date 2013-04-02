@@ -135,6 +135,18 @@
             <artifactId>http-request</artifactId>
             <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>fr.ybonnel</groupId>
+            <artifactId>simpleweb4j-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.easytesting</groupId>
+            <artifactId>fest-assert</artifactId>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <dependencyManagement>
@@ -163,6 +175,18 @@
                 <groupId>com.github.kevinsawicki</groupId>
                 <artifactId>http-request</artifactId>
                 <version>${test.http-request.version}</version>
+            </dependency>
+
+
+            <dependency>
+                <groupId>fr.ybonnel</groupId>
+                <artifactId>simpleweb4j-test</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>org.easytesting</groupId>
+                <artifactId>fest-assert</artifactId>
+                <version>1.4</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

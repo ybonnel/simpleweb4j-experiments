@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>simpleweb4j-experiments</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
+        <style>
+            body {
+                padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+            }
+        </style>
+    </head>
+    <body ng-app="simpleweb4j-experiments">
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a class="brand" href="/">simpleweb4j-experiments</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- angular will insert the template in container -->
+        <div class="container" ng-view>
+        </div>
+        <!-- Placed javascripts at the end of the document so the pages load faster -->
+        <script src="js/angular.min.js"></script>
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/simpleweb4j-experiments.js"></script>
+    </body>
+</html>

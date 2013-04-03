@@ -7,11 +7,7 @@
 
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
-        <style>
-            body {
-                padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
-            }
-        </style>
+        <link href="css/simpleweb4j-experiments.less" rel="stylesheet">
     </head>
     <body ng-app="simpleweb4j-experiments">
         <div class="navbar navbar-inverse navbar-fixed-top">
@@ -23,8 +19,12 @@
         </div>
 
         <!-- angular will insert the template in container -->
-        <div class="container" ng-view>
+        <div class="container">
+            <div class="content" ng-view>
+            </div>
         </div>
+
+
         <!-- Placed javascripts at the end of the document so the pages load faster -->
         <script src="js/angular.min.js"></script>
         <script src="js/angular-resource.min.js"></script>

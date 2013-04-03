@@ -1,24 +1,41 @@
 <div class="row">
-    <div class="span3"></div>
-    <div class="span6 well"><a href="#/new" class="btn btn-success btn-larger">Add a beer</a></div>
+    <div class="span12 relative">
+        <span></span>
+        <a class="btn btn-success right-btn" href="#/new">Add a beer</a>
+    </div>
 </div>
 
+
 <div class="row">
-    <div class="span3"></div>
-    <div class="span6 well">
-        <table class="table table-bordered table-hover">
+    <div class="span12">
+        <table id="beers" class="table table-bordered table-hover">
             <thead>
             <tr>
-                <th>Name</th>
-                <th></th>
-                <th></th>
+                <th class="name">Name</th>
+                <th class="edit"></th>
+                <th class="remove"></th>
             </tr>
             </thead>
             <tbody>
             <tr ng-repeat="beer in beers">
                 <td>{{beer.name}}</td>
-                <td><a href="#/edit/{{beer.id}}" class="icon-edit"></a></td>
-                <td><a href="#" ng-click="delete(beer)" class="icon-remove"></a></td>
+                <td class="edit"><a href="#/edit/{{beer.id}}" class="icon-edit" role="button"></a></td>
+                <td class="remove">
+                    <a href="#delete{{beer.id}}" role="button" data-toggle="modal" class="icon-remove"></a>
+                    <div id="delete{{beer.id}}" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modelLabel{{beer.id}}" aria-hidden="true">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                            <h3 id="modelLabel{{beer.id}}">Remove {{beer.name}}</h3>
+                        </div>
+                        <div class="modal-body">
+                            <p>Warning, the beer {{beer.name}} will be removed definitively</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+                            <button class="btn btn-danger" ng-click="delete(beer)">Remove</button>
+                        </div>
+                    </div>
+                </td>
             </tr>
             </tbody>
         </table>

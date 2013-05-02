@@ -1,14 +1,6 @@
 package fr.ybonnel.simpleweb4j.experiments;
 
-import fr.ybonnel.simpleweb4j.exception.HttpErrorException;
-import fr.ybonnel.simpleweb4j.handlers.Response;
-import fr.ybonnel.simpleweb4j.handlers.Route;
-import fr.ybonnel.simpleweb4j.handlers.RouteParameters;
 import fr.ybonnel.simpleweb4j.model.SimpleEntityManager;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 
 import static fr.ybonnel.simpleweb4j.SimpleWeb4j.*;
 
@@ -27,6 +19,7 @@ public class Experiments {
         setPort(port);
         // Set the path to static resources.
         setPublicResourcesPath("/fr/ybonnel/simpleweb4j/experiments/public");
+        setEntitiesClasses(Beer.class);
 
         resource(new BeerRessource("/beer"));
 

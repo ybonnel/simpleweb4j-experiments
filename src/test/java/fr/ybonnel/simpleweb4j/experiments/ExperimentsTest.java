@@ -20,6 +20,8 @@ public class ExperimentsTest extends SimpleWeb4jTest {
     @Before
     public void setup() {
 
+        Experiments.startServer(getPort(), false);
+
         SimpleEntityManager.openSession().beginTransaction();
 
         for (Beer beerToDelete : Beer.simpleEntityManager.getAll()) {
@@ -32,7 +34,6 @@ public class ExperimentsTest extends SimpleWeb4jTest {
         Beer.simpleEntityManager.save(beer);
         SimpleEntityManager.getCurrentSession().getTransaction().commit();
         SimpleEntityManager.closeSession();
-        Experiments.startServer(getPort(), false);
     }
 
     @After

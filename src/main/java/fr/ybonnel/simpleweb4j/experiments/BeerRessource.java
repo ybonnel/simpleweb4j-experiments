@@ -29,8 +29,9 @@ public class BeerRessource extends RestResource<Beer> {
     }
 
     @Override
-    public void create(Beer resource) throws HttpErrorException {
+    public Beer create(Beer resource) throws HttpErrorException {
         Beer.simpleEntityManager.save(resource);
+        return resource;
     }
 
     @Override

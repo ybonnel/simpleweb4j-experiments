@@ -20,7 +20,7 @@
         <plugin.dependency.version>2.6</plugin.dependency.version>
 
         <!-- dependencies versions -->
-        <dependency.simpleweb4j.version>0.0.3-SNAPSHOT</dependency.simpleweb4j.version>
+        <dependency.simpleweb4j.version>0.0.4-SNAPSHOT</dependency.simpleweb4j.version>
         <dependency.slf4j.version>1.7.2</dependency.slf4j.version>
 
         <!-- test dependencies versions -->
@@ -181,7 +181,7 @@
             <dependency>
                 <groupId>fr.ybonnel</groupId>
                 <artifactId>simpleweb4j-test</artifactId>
-                <version>0.0.1-SNAPSHOT</version>
+                <version>0.0.1</version>
             </dependency>
             <dependency>
                 <groupId>org.easytesting</groupId>
